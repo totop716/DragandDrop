@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center" style="overflow-x: scroll">
+  <h1>
+    Drag and Drop 
+  </h1>
+  
+  <div *ngFor="let imgs of allImage" [ngStyle]="{'width.px': nWidth}" style="overflow: hidden; height: 272px;">
+    <div >
+      <div id="img_container" *ngFor="let img of imgs.slides" style="height: 272px;">
+        <div id="{{ img.Imageid }}" (mousedown)="getImageId( img.Imageid, img.Name, img.order, img.URL, imgs['row id'] )" mwlDraggable mwlDroppable (dragStart)="dragStart($event)" (dragEnd)="dragEnd($event)" >
+          <div>  image_id:{{ img.Imageid }}, name:{{ img.Name }}, order:{{ img.order }}</div>
+          <div><img  src="{{ img.URL }}" ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
